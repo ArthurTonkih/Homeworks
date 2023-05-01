@@ -21,13 +21,6 @@ echo "Дней в месяце: ".$day2;
 echo "<br>";
 
 
-$d = date('w');
-$dayholiday = date('w', mktime(0, 0, 0, 1, 18, 2008));
-$week2 = ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"];
-echo "Сегодня: ".$week2[$d];
-echo "<br>";
-
-
 $Date = date_create('2025-12-31');
 date_modify($Date, '2 days 1 month');
 date_modify($Date, '3 days 1 year');
@@ -57,9 +50,9 @@ echo "<br>";
 function isleap( $year )
 {
     if( $year % 4 == 0 )
-        echo 'Год високосный';
+        echo $year.' год високосный';
     else
-        echo 'Год не високосный';
+        echo $year.' год не високосный';
 }
 echo isleap(2001);
 

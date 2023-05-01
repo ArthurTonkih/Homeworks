@@ -1,30 +1,44 @@
 <?
-/* Задание 1 */
-function power($val, $pow) {
-		return ($pow == 1) ? $val : $val * power($val, $pow - 1);
-	}
-	echo power(6, 2);
+// Задание 1 
+function power($val, $pow){
+    if ($pow == 1) {
+        return $val;
+    }
+    $res = $val * power($val, $pow - 1);
+    return $res;
+}
+echo power(9, 3);
 echo "<br>";
 
-/* Задание 2 */
-function num_word($value, $words, $show = true) 
-{
-	$num = $value % 100;
-	if ($num > 19) { 
-		$num = $num % 10; 
-	}
-	
-	$out = ($show) ?  $value . ' ' : '';
-	switch ($num) {
-		case 1:  $out .= $words[0]; break;
-		case 2: 
-		case 3: 
-		case 4:  $out .= $words[1]; break;
-		default: $out .= $words[2]; break;
-	}
-	
-	return $out;
+//Задание 2 
+function time($hour, $minute) {
+    $resulth = ($hour <= 10) ? $hour % 10 : $hour % 20;
+    switch ($resulth) {
+        case 1:
+            echo "$hour час ";
+            break;
+        case 2:
+        case 3:
+        case 4:
+            echo "$hour часа ";
+            break;
+        default:
+            echo "$hour часов ";
+            break;
+    }
+    $resultm = ($minute <= 10) ? $minute % 10 : $minute % 20;
+    switch ($resultm) {
+        case 1:
+            return "$minute минута";
+        case 2:
+        case 3:
+        case 4:
+            return "$minute минуты";
+        default:
+            return "$minute минут";
+    }
 }
-echo num_word(1, array('час', 'часа', 'часов'));
-echo num_word(37, array('минута', 'минуты', 'минут'));
+$hour = (15);
+$minute = (25);
+echo time($hour, $minute);
 ?>
